@@ -23,8 +23,8 @@ loadhomes()
 minetest.register_privilege("home", "Can use /sethome and /home")
 
 minetest.register_chatcommand("home", {
-    description = "Teleport you to your home point",
-    privs = {home=true},
+	description = "Teleport you to your home point",
+	privs = {home=true},
 	func = function(name)
 		local player = minetest.get_player_by_name(name)
 		if homepos[name] and player then
@@ -37,10 +37,10 @@ minetest.register_chatcommand("home", {
 })
 
 minetest.register_chatcommand("sethome", {
-    description = "Set your home point",
-    privs = {home=true},
-    func = function(name)
-	   local pos = minetest.get_player_by_name(name):getpos()
+	description = "Set your home point",
+	privs = {home=true},
+	func = function(name)
+		local pos = minetest.get_player_by_name(name):getpos()
 		local data = ""
 		local output = io.open(homes_file, "w")
 		homepos[name] = pos
