@@ -41,13 +41,13 @@ minetest.register_chatcommand("sethome", {
 	privs = {home=true},
 	func = function(name)
 		local pos = minetest.get_player_by_name(name):getpos()
-		local data = ""
+		local data = {}
 		local output = io.open(homes_file, "w")
 		homepos[name] = pos
 		for i, v in pairs(homepos) do
-			data = string.format("%s %.1f %.1f %.1f %s\n",  data,v.x,v.y,v.z,i)
+			table.insert(data, string.format("%.1f %.1f %.1f %s\n", v.x,v.y,v.z,i))
 		end
-		output:write(data)
+		output:write(table.concat(data))
 		io.close(output)
 		return true, "Home set!"
 	end,
