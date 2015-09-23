@@ -187,11 +187,15 @@ else
 		chance = 16,
 		action = function(p0, node, _, _)
 			-- If there are no flammable nodes around flame, remove flame
-			if not minetest.find_node_near(p0, 1, {"group:flammable"}) then
+			local pos = minetest.find_node_near(p0, 1, {"group:flammable"})
+			if not pos then
 				minetest.remove_node(p0)
 				return
 			end
-			if math.random(1, 4) == 1 then
+			local node = minetest.get_node(pos)
+			local fuel, _ = minetest.get_craft_result({method = "fuel", width = 1, items = {node}})
+			local fuel_time = fuel.time or 4
+			if math.random(1, fuel_time) == 1 then
 				-- remove flammable nodes around flame
 				local p = minetest.find_node_near(p0, 1, {"group:flammable"})
 				if p then
