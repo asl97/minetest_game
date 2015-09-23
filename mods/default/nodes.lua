@@ -1633,6 +1633,63 @@ minetest.register_node("default:fence_wood", {
 	sounds = default.node_sound_wood_defaults(),
 })
 
+local junglewood_fence_texture =
+	"default_fence_overlay.png^default_junglewood.png^default_fence_overlay.png^[makealpha:255,126,126"
+minetest.register_node("default:fence_junglewood", {
+	description = "Wooden Fence (jungle)",
+	drawtype = "fencelike",
+	tiles = {"default_junglewood.png"},
+	inventory_image = junglewood_fence_texture,
+	wield_image = junglewood_fence_texture,
+	paramtype = "light",
+	sunlight_propagates = true,
+	is_ground_content = false,
+	selection_box = {
+		type = "fixed",
+		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
+	},
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2},
+	sounds = default.node_sound_wood_defaults(),
+})
+
+local acaciawood_fence_texture =
+	"default_fence_overlay.png^default_acacia_wood.png^default_fence_overlay.png^[makealpha:255,126,126"
+minetest.register_node("default:fence_acacia_wood", {
+	description = "Wooden Fence (acacia)",
+	drawtype = "fencelike",
+	tiles = {"default_acacia_wood.png"},
+	inventory_image = acaciawood_fence_texture,
+	wield_image = acaciawood_fence_texture,
+	paramtype = "light",
+	sunlight_propagates = true,
+	is_ground_content = false,
+	selection_box = {
+		type = "fixed",
+		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
+	},
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2},
+	sounds = default.node_sound_wood_defaults(),
+})
+
+local pinewood_fence_texture =
+	"default_fence_overlay.png^default_pine_wood.png^default_fence_overlay.png^[makealpha:255,126,126"
+minetest.register_node("default:fence_pine_wood", {
+	description = "Wooden Fence (pine)",
+	drawtype = "fencelike",
+	tiles = {"default_pine_wood.png"},
+	inventory_image = pinewood_fence_texture,
+	wield_image = pinewood_fence_texture,
+	paramtype = "light",
+	sunlight_propagates = true,
+	is_ground_content = false,
+	selection_box = {
+		type = "fixed",
+		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
+	},
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2},
+	sounds = default.node_sound_wood_defaults(),
+})
+
 
 minetest.register_node("default:glass", {
 	description = "Glass",
